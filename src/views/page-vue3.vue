@@ -2,7 +2,7 @@
   <div>
     <micro-app
       name="appname-vue3"
-      url="http://localhost:8080/"
+      url="http://localhost:8082/"
       baseroute="/app-vue3"
       :data="microAppData"
       @created="handleCreate"

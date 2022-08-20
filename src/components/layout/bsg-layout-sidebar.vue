@@ -2,14 +2,23 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-20 15:30:26
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-20 16:00:29
- * @FilePath: \micro-app-demo-own\child_apps\vue3\src\components\layout\bsg-layout-sidebar.vue
+ * @LastEditTime: 2022-08-20 20:18:13
+ * @FilePath: \micro-app-demo-own\src\components\layout\bsg-layout-sidebar.vue
  * @Description: 布局 侧边栏
 -->
 
 <template>
   <div class="bsg-layout-sidebar">
-    <div>这是侧边栏</div>
+    <div class="layout_sidebar">
+      <div class="layout_sidebar_items">
+        <div class="layout_sidebar_item">
+          <router-link to="/app-vue2">vue2 子应用</router-link>
+        </div>
+        <div class="layout_sidebar_item">
+          <router-link to="/app-vue3">vue3 子应用</router-link>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -27,6 +36,21 @@ export default {
 <style lang="scss" scoped>
 /* 自定义样式
 ---------------------------------------------------------------- */
+.layout_sidebar_items {
+  padding: 12px;
+}
+.layout_sidebar_item {
+  height: 45px;
+  margin-bottom: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+
+  background-color: aqua;
+}
 </style>
 <style lang="scss">
 /* 覆盖样式

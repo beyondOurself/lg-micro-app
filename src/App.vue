@@ -13,16 +13,22 @@
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将渲染在这里 -->
 
-    <router-view></router-view>
+    <Layout>
+      <router-view></router-view>
+    </Layout>
   </div>
 </template>
 
 
 
 <script>
+import Layout from "@/components/layout/bsg-layout.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    Layout,
+  },
 };
 </script>
 
