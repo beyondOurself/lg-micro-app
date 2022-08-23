@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-23 10:27:54
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 16:50:49
+ * @LastEditTime: 2022-08-23 17:03:31
  * @FilePath: \vue3\src\components\demo\lg-demo-to.vue
  * @Description: 测试路由跳转
 -->
@@ -54,6 +54,13 @@
         >
       </div>
       <!-- E 子应用获取全局数据 -->
+      <!-- S 自定义通讯对象发送数据 -->
+      <div class="demo_to_item">
+        <el-button @click="dispatchCustom" type="primary"
+          >自定义通讯对象发送数据</el-button
+        >
+      </div>
+      <!-- E 自定义通讯对象发送数据 -->
     </div>
   </div>
 </template>
@@ -155,6 +162,19 @@ const getGlobalData = () => {
   const getGlobalData = window.microApp.getGlobalData(); // 返回全局数据
 
   console.log("子应用获取全局数据", getGlobalData);
+};
+
+/**
+ * @Author: canlong.shen
+ * @description:
+ * @default:
+ * @return {*}
+ */
+const dispatchCustom = () => {
+  console.log("点击了");
+  window.eventCenterForAppVue3.dispatch({
+    type: "子应用 自定义通讯发送的数据",
+  });
 };
 </script>
 <style lang="scss" scoped>
