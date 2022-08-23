@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-23 10:27:54
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 16:15:55
+ * @LastEditTime: 2022-08-23 16:50:49
  * @FilePath: \vue3\src\components\demo\lg-demo-to.vue
  * @Description: 测试路由跳转
 -->
@@ -40,6 +40,20 @@
         >
       </div>
       <!-- E 子应用向基座应用发送数据 -->
+      <!-- S 子应用发送全局数据 -->
+      <div class="demo_to_item">
+        <el-button @click="setGlobalData" type="primary"
+          >子应用发送全局数据</el-button
+        >
+      </div>
+      <!-- E 子应用发送全局数据 -->
+      <!-- S 子应用获取全局数据 -->
+      <div class="demo_to_item">
+        <el-button @click="getGlobalData" type="primary"
+          >子应用获取全局数据</el-button
+        >
+      </div>
+      <!-- E 子应用获取全局数据 -->
     </div>
   </div>
 </template>
@@ -119,6 +133,29 @@ const fetchBaseData = () => {
   window.microApp.dispatch({ type: "子应用发送的数据" });
 };
 // < 子应用向基座应用发送数据
+
+/**
+ * @Author: canlong.shen
+ * @description: 发送全局数据
+ * @default:
+ * @return {*}
+ */
+const setGlobalData = () => {
+  window.microApp.setGlobalData({ type: "子应用发送的全局数据" });
+};
+
+/**
+ * @Author: canlong.shen
+ * @description:  获取全局数据
+ * @default:
+ * @return {*}
+ */
+
+const getGlobalData = () => {
+  const getGlobalData = window.microApp.getGlobalData(); // 返回全局数据
+
+  console.log("子应用获取全局数据", getGlobalData);
+};
 </script>
 <style lang="scss" scoped>
 /* 自定义样式

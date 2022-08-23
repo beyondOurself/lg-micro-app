@@ -44,6 +44,24 @@ console.log(
 
 // < 环境变量
 
+// > 子应用 监听全局数据
+
+/**
+ * 绑定监听函数
+ * dataListener: 绑定函数
+ * autoTrigger: 在初次绑定监听函数时如果有缓存数据，是否需要主动触发一次，默认为false
+ * window.microApp.addGlobalDataListener(dataListener: Function, autoTrigger?: boolean)
+ *
+ * // 解绑监听函数
+ * window.microApp.removeGlobalDataListener(dataListener: Function)
+ *
+ * // 清空当前子应用绑定的所有全局数据监听函数
+ * window.microApp.clearGlobalDataListener()
+ *
+ */
+
+// < 子应用 监听全局数据
+
 const app = createApp(App);
 app.use(router);
 app.use(ElementPlus);

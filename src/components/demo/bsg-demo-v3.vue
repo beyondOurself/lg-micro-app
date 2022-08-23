@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-23 11:54:14
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 16:26:21
+ * @LastEditTime: 2022-08-23 16:44:01
  * @FilePath: \micro-app-demo-own\src\components\demo\bsg-demo-v3.vue
  * @Description:  vue3 + webpack
 -->
@@ -22,6 +22,17 @@
       </a-button>
     </div>
     <!-- E 主动向子应用发送数据 -->
+
+    <!-- S 获取全局数据 -->
+    <div class="demo_v3_item">
+      <a-button type="primary" @click="getGlobalData">获取全局数据 </a-button>
+    </div>
+    <!-- E 获取全局数据 -->
+    <!-- S 发送全局数据 -->
+    <div class="demo_v3_item">
+      <a-button type="primary" @click="setGlobalData">发送全局数据 </a-button>
+    </div>
+    <!-- E 发送全局数据 -->
   </div>
 </template>
 <script>
@@ -55,6 +66,25 @@ export default {
      */
     setDataToSubApply() {
       this.$microApp.setData("appname-vue3", { type: "新的数据" });
+    },
+    /**
+     * @Author: canlong.shen
+     * @description:  获取全局数据
+     * @default:
+     * @return {*}
+     */
+    getGlobalData() {
+      const globalData = this.$microApp.getGlobalData(); // 返回全局数据
+      console.log("globalData", globalData);
+    },
+    /**
+     * @Author: canlong.shen
+     * @description: 发送全局数据
+     * @default:
+     * @return {*}
+     */
+    setGlobalData() {
+      this.$microApp.setGlobalData({ type: "基座发送的全局数据" });
     },
   },
   mounted() {},

@@ -97,6 +97,30 @@ microApp.addDataListener(
 
 // < 绑定监听函数
 
+// > 获取全局数据
+
+/**
+ * 绑定监听函数
+ * dataListener: 绑定函数
+ * autoTrigger: 在初次绑定监听函数时如果有缓存数据，是否需要主动触发一次，默认为false
+ *
+ * microApp.addGlobalDataListener(dataListener: Function, autoTrigger?: boolean)
+ *
+ * // 解绑监听函数
+ * microApp.removeGlobalDataListener(dataListener: Function)
+ *
+ *
+ * // 清空基座应用绑定的所有全局数据监听函数
+ * microApp.clearGlobalDataListener()
+ *
+ */
+
+microApp.addGlobalDataListener((globalData) => {
+  console.log("基座应用,获取来自全局数据", globalData);
+}, true);
+
+// < 获取全局数据
+
 Vue.use(Antd);
 
 const router = new VueRouter({
