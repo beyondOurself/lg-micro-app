@@ -12,5 +12,6 @@ app.use(ElementPlus);
 app.mount("#app");
 // 监听卸载操作
 window.addEventListener("unmount", function () {
+  console.log("子应用 被卸载了");
   app.unmount();
 });
