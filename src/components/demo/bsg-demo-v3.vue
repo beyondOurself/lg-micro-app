@@ -2,15 +2,26 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-23 11:54:14
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 14:59:38
+ * @LastEditTime: 2022-08-23 16:26:21
  * @FilePath: \micro-app-demo-own\src\components\demo\bsg-demo-v3.vue
  * @Description:  vue3 + webpack
 -->
 
 <template>
   <div class="bsg-demo-v3">
-    <a-button type="primary" @click="toVue3"> 跳转到 vue3 页面 </a-button>
-    <a-button type="primary" @click="showEnv"> 项目环境 </a-button>
+    <div class="demo_v3_item">
+      <a-button type="primary" @click="toVue3"> 跳转到 vue3 页面 </a-button>
+    </div>
+    <div class="demo_v3_item">
+      <a-button type="primary" @click="showEnv"> 项目环境 </a-button>
+    </div>
+    <!-- S 主动向子应用发送数据 -->
+    <div class="demo_v3_item">
+      <a-button type="primary" @click="setDataToSubApply"
+        >主动向子应用发送数据
+      </a-button>
+    </div>
+    <!-- E 主动向子应用发送数据 -->
   </div>
 </template>
 <script>
@@ -22,6 +33,12 @@ export default {
     return {};
   },
   methods: {
+    /**
+     * @Author: canlong.shen
+     * @description:  跳转到 vue3 子应用
+     * @default:
+     * @return {*}
+     */
     toVue3() {
       this.$router.push({
         path: "/app-vue3",
@@ -30,6 +47,15 @@ export default {
     showEnv() {
       console.log(process.env.NODE_ENV);
     },
+    /**
+     * @Author: canlong.shen
+     * @description: 主动向 子应用发送数据
+     * @default:
+     * @return {*}
+     */
+    setDataToSubApply() {
+      this.$microApp.setData("appname-vue3", { type: "新的数据" });
+    },
   },
   mounted() {},
 };
@@ -37,6 +63,9 @@ export default {
 <style lang="scss" scoped>
 /* 自定义样式
 ---------------------------------------------------------------- */
+.demo_v3_item {
+  margin-bottom: 16px;
+}
 </style>
 <style lang="scss">
 /* 覆盖样式

@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-23 09:26:35
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 14:34:08
+ * @LastEditTime: 2022-08-23 16:23:53
  * @FilePath: \vue3\src\components\layout\lg-layout-sidebar.vue
  * @Description: 布局 侧边栏
 -->
@@ -64,8 +64,6 @@ export default {
 }
 
 .sidebar_item_content {
-  margin-top: 16px;
-
   display: flex;
   justify-content: center;
   align-items: center;

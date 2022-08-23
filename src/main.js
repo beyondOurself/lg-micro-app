@@ -57,6 +57,46 @@ microApp.start({
   },
 });
 
+// > 基座向子应用,手动发送数据
+
+// 发送数据给子应用 my-app，setData第二个参数只接受对象类型
+
+Vue.prototype.$microApp = microApp;
+
+microApp.setData("appname-vue3", { type: "appname-vue3 来的新数据" });
+
+// < 基座向子应用,手动发送数据
+
+// > 绑定监听函数
+
+/**
+ * 绑定监听函数
+ * appName: 应用名称
+ * dataListener: 绑定函数
+ * autoTrigger: 在初次绑定监听函数时如果有缓存数据，是否需要主动触发一次，默认为false
+ *
+ * microApp.addDataListener(appName: string, dataListener: Function, autoTrigger?: boolean)
+ *
+ * // 解绑监听my-app子应用的函数
+ * microApp.removeDataListener(appName: string, dataListener: Function)
+ *
+ *
+ * // 清空所有监听appName子应用的函数
+ * microApp.clearDataListener(appName: string)
+ *
+ *
+ */
+
+microApp.addDataListener(
+  "appname-vue3",
+  (data) => {
+    console.log("绑定监听函数,获取来自 appname-vue3 的数据 ", data);
+  },
+  true
+);
+
+// < 绑定监听函数
+
 Vue.use(Antd);
 
 const router = new VueRouter({

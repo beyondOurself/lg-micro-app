@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-19 14:27:16
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 15:20:26
+ * @LastEditTime: 2022-08-23 16:28:05
  * @FilePath: \micro-app-demo-own\src\views\page-vue3.vue
  * @Description:  vue3 页面
 -->
@@ -33,7 +33,7 @@ export default {
   name: "PageVue3",
   data() {
     return {
-      microAppData: { msg: "来自基座的数据" },
+      microAppData: { msg: "来自基座的数据" }, //  data只接受对象类型，数据变化时会重新发送
     };
   },
   computed: {
@@ -92,7 +92,7 @@ export default {
     },
 
     handleDataChange(e) {
-      console.log("来自子应用 子应用 的数据:", e.detail.data);
+      console.log("来自子应用 的数据:", e.detail.data);
     },
   },
 };
