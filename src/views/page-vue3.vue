@@ -1,5 +1,7 @@
 <template>
   <div>
+    <div>这是主体</div>
+
     <micro-app
       name="appname-vue3"
       url="http://localhost:8082/"

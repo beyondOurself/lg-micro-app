@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-20 16:03:15
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-20 20:10:05
+ * @LastEditTime: 2022-08-22 19:13:11
  * @FilePath: \micro-app-demo-own\src\components\layout\bsg-layout.vue
  * @Description: 布局
 -->
@@ -76,7 +76,7 @@ export default {
 }
 
 .layout_sidebar {
-  min-width: 200px;
+  min-width: 300px;
 }
 
 .layout_container {

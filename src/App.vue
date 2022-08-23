@@ -14,6 +14,9 @@
     <!-- 路由匹配到的组件将渲染在这里 -->
 
     <Layout>
+      <template #base>
+        <div>愚蠢的地球人</div>
+      </template>
       <router-view></router-view>
     </Layout>
   </div>
