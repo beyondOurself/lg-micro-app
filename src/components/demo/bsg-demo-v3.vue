@@ -1,11 +1,20 @@
+<!--
+ * @Author: canlong.shen 562172151@qq.com
+ * @Date: 2022-08-23 11:54:14
+ * @LastEditors: canlong.shen 562172151@qq.com
+ * @LastEditTime: 2022-08-23 12:01:35
+ * @FilePath: \micro-app-demo-own\src\components\demo\bsg-demo-v3.vue
+ * @Description:  vue3 + webpack
+-->
+
 <template>
-  <div class="page-test1">
-    <div>测试页面1111111</div>
+  <div class="bsg-demo-v3">
+    <div>这是vue3 演示</div>
   </div>
 </template>
 <script>
 export default {
-  name: "PageTest1",
+  name: "BsgDemoV3",
   props: {},
   components: {},
   data() {
@@ -18,9 +27,6 @@ export default {
 <style lang="scss" scoped>
 /* 自定义样式
 ---------------------------------------------------------------- */
-.page-test1 {
-  background-color: red;
-}
 </style>
 <style lang="scss">
 /* 覆盖样式

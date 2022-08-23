@@ -1,11 +1,20 @@
-<template>
-  <div>
-    <div>这是主体</div>
+<!--
+ * @Author: canlong.shen 562172151@qq.com
+ * @Date: 2022-08-19 14:27:16
+ * @LastEditors: canlong.shen 562172151@qq.com
+ * @LastEditTime: 2022-08-23 11:16:12
+ * @FilePath: \micro-app-demo-own\src\views\page-vue3.vue
+ * @Description:  vue3 页面
+-->
 
+
+<template>
+  <div class="page-vue3">
     <micro-app
       name="appname-vue3"
       url="http://localhost:8082/"
       baseroute="/app-vue3"
+      destroy
       :data="microAppData"
       @created="handleCreate"
       @beforemount="handleBeforeMount"
@@ -60,5 +69,5 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 </style>

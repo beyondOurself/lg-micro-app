@@ -27,6 +27,7 @@ const routes = [
     component: RootApp,
     children: [
       // 其他的路由都写到这里
+      { path: "/", component: () => import("@/views/page-home.vue") },
       { path: "test1", component: PateTest1 },
       { path: "test2", component: PateTest2 },
     ],
@@ -51,9 +52,8 @@ const router = createRouter({
 
 // main.js
 const app = createApp(App);
-app.mount("#app");
 app.use(router);
-
+app.mount("#app");
 // 监听卸载操作
 window.addEventListener("unmount", function () {
   app.unmount();

@@ -1,21 +1,20 @@
 <!--
  * @Author: canlong.shen 562172151@qq.com
- * @Date: 2022-08-20 16:00:47
+ * @Date: 2022-08-23 09:11:58
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 11:04:24
- * @FilePath: \micro-app-demo-own\src\components\layout\bsg-layout-container.vue
- * @Description: 布局 内容主体
+ * @LastEditTime: 2022-08-23 10:22:09
+ * @FilePath: \vue3\src\components\layout\lg-layout-header.vue
+ * @Description: 布局 导航栏
 -->
 
-
 <template>
-  <div class="bsg-layout-container">
-    <slot></slot>
+  <div class="lg-layout-header">
+    <div class="layout_header">vue3 子应用 导航栏</div>
   </div>
 </template>
 <script>
 export default {
-  name: "BsgLayoutContainer",
+  name: "LgLayoutHeader",
   props: {},
   components: {},
   data() {
@@ -28,12 +27,14 @@ export default {
 <style lang="scss" scoped>
 /* 自定义样式
 ---------------------------------------------------------------- */
-.layout_container {
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.layout_header {
+  height: 45px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: cornflowerblue;
 }
 </style>
 <style lang="scss">

@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-20 16:03:15
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-22 19:13:11
+ * @LastEditTime: 2022-08-23 12:01:57
  * @FilePath: \micro-app-demo-own\src\components\layout\bsg-layout.vue
  * @Description: 布局
 -->
@@ -18,7 +18,13 @@
       <!-- E 头部 -->
       <div class="layout_main">
         <!-- S 侧边栏 -->
-        <BsgLayoutSidebar class="layout_sidebar" />
+        <BsgLayoutSidebar class="layout_sidebar" :localData="curLocalData">
+          <template #vue3>
+            <div>
+              <BsgDemoV3 />
+            </div>
+          </template>
+        </BsgLayoutSidebar>
         <!-- E 侧边栏 -->
 
         <!-- S 内容 -->
@@ -35,6 +41,10 @@ import BsgLayoutHeader from "./bsg-layout-header.vue";
 import BsgLayoutSidebar from "./bsg-layout-sidebar.vue";
 import BsgLayoutContainer from "./bsg-layout-container.vue";
 
+// 演示
+
+import BsgDemoV3 from "@/components/demo/bsg-demo-v3.vue";
+
 export default {
   name: "BsgLayout",
   props: {},
@@ -42,9 +52,17 @@ export default {
     BsgLayoutHeader,
     BsgLayoutSidebar,
     BsgLayoutContainer,
+    BsgDemoV3,
   },
   data() {
-    return {};
+    return {
+      curLocalData: [
+        {
+          text: "vue3 + webpack + hash",
+          slot: "vue3",
+        },
+      ],
+    };
   },
   methods: {},
   mounted() {},
