@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-23 11:54:14
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 16:44:01
+ * @LastEditTime: 2022-08-23 16:57:57
  * @FilePath: \micro-app-demo-own\src\components\demo\bsg-demo-v3.vue
  * @Description:  vue3 + webpack
 -->

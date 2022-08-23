@@ -3,6 +3,7 @@ import App from "./App.vue";
 import routes from "@/routes/router.js";
 import VueRouter from "vue-router";
 import microApp from "@micro-zoe/micro-app";
+import { EventCenterForMicroApp } from "@micro-zoe/micro-app";
 import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
 Vue.config.productionTip = false;
@@ -120,6 +121,40 @@ microApp.addGlobalDataListener((globalData) => {
 }, true);
 
 // < 获取全局数据
+
+// > 关闭沙箱手动初始化通行对象
+
+// 注意：每个子应用根据appName单独分配一个通信对象
+window.eventCenterForAppVue3 = new EventCenterForMicroApp("appname-vue3");
+
+window.eventCenterForAppVue3.addDataListener((data) => {
+  console.log("基座应用,自定义通讯对象,获取的数据", data);
+}, true);
+
+// < 关闭沙箱手动初始化通行对象
+
+// > 预加载
+
+// 方式一
+microApp.preFetch([{ name: "appname-vue3", url: "http://localhost:8082/" }]);
+
+// 方式二
+// microApp.preFetch(() => [
+//   { name: 'my-app', url: 'xxx' }
+// ])
+
+// 方式三
+// microApp.start({
+//   preFetchApps: [
+//     { name: 'my-app', url: 'xxx' }
+//   ],
+//   // 函数类型
+//   // preFetchApps: () => [
+//   //   { name: 'my-app', url: 'xxx' }
+//   // ],
+// })
+
+// < 预加载
 
 Vue.use(Antd);
 
