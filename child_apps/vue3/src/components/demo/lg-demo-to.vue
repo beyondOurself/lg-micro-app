@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-23 10:27:54
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 11:03:31
+ * @LastEditTime: 2022-08-23 14:40:26
  * @FilePath: \vue3\src\components\demo\lg-demo-to.vue
  * @Description: 测试路由跳转
 -->
@@ -10,7 +10,12 @@
 <template>
   <div class="lg-demo-to">
     <div class="demo_to">
-      <button @click="toTest1">跳转到test1</button>
+      <!-- S 跳转到页面 -->
+      <div>
+        <el-button @click="toTest1" type="primary">跳转到 test1 页面</el-button>
+        <el-button @click="toTest2" type="primary">跳转到 test2 页面</el-button>
+      </div>
+      <!-- E 跳转到页面 -->
 
       <!-- S 演示操作 -->
 
@@ -29,8 +34,6 @@ import { useRouter, useRoute } from "vue-router";
 const router = useRouter();
 const route = useRoute();
 const toTest1 = () => {
-  console.log("点击了");
-
   router.push({
     path: "/app-vue3/test1",
     query: {
@@ -38,30 +41,14 @@ const toTest1 = () => {
     },
   });
 };
-
-// export default {
-//   name: "LgDemoTo",
-//   props: {},
-//   components: {},
-//   data() {
-//     return {};
-//   },
-//   methods: {
-//     /**
-//      * @Author: canlong.shen
-//      * @description: 跳转到 test1
-//      * @default:
-//      * @return {*}
-//      */
-//     toTest1() {
-//       console.log("点击了~");
-//       this.$router.push({
-//         path: "/app-vue3/test1",
-//       });
-//     },
-//   },
-//   mounted() {},
-// };
+const toTest2 = () => {
+  router.push({
+    path: "/app-vue3/test2",
+    query: {
+      ...route.query,
+    },
+  });
+};
 </script>
 <style lang="scss" scoped>
 /* 自定义样式

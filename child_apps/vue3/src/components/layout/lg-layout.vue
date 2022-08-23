@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-23 09:10:34
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 11:38:22
+ * @LastEditTime: 2022-08-23 14:38:34
  * @FilePath: \vue3\src\components\layout\lg-layout.vue
  * @Description: 布局 基础布局组件
 -->
@@ -38,9 +38,10 @@ import LgLayoutContainer from "./lg-layout-container";
 // 测试用例
 
 import LgDemoTo from "../demo/lg-demo-to";
+import LgDemoV2 from "../demo/lg-demo-v2";
 const curLocalData = [
   {
-    text: "路由跳转",
+    text: "子应用 路由 演示",
     slot: "to",
   },
 ];

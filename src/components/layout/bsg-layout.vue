@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-20 16:03:15
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 12:01:57
+ * @LastEditTime: 2022-08-23 14:06:00
  * @FilePath: \micro-app-demo-own\src\components\layout\bsg-layout.vue
  * @Description: 布局
 -->
@@ -22,6 +22,11 @@
           <template #vue3>
             <div>
               <BsgDemoV3 />
+            </div>
+          </template>
+          <template #vue2>
+            <div>
+              <BsgDemoV2 />
             </div>
           </template>
         </BsgLayoutSidebar>
@@ -44,6 +49,7 @@ import BsgLayoutContainer from "./bsg-layout-container.vue";
 // 演示
 
 import BsgDemoV3 from "@/components/demo/bsg-demo-v3.vue";
+import BsgDemoV2 from "@/components/demo/bsg-demo-v2.vue";
 
 export default {
   name: "BsgLayout",
@@ -53,6 +59,7 @@ export default {
     BsgLayoutSidebar,
     BsgLayoutContainer,
     BsgDemoV3,
+    BsgDemoV2,
   },
   data() {
     return {
@@ -60,6 +67,10 @@ export default {
         {
           text: "vue3 + webpack + hash",
           slot: "vue3",
+        },
+        {
+          text: "vue2 + webpack + hash",
+          slot: "vue2",
         },
       ],
     };

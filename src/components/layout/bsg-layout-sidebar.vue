@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-20 15:30:26
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 11:56:59
+ * @LastEditTime: 2022-08-23 14:30:30
  * @FilePath: \micro-app-demo-own\src\components\layout\bsg-layout-sidebar.vue
  * @Description: 布局 侧边栏
 -->
@@ -19,13 +19,6 @@
             </div>
           </div>
         </template>
-
-        <!-- <div class="layout_sidebar_item">
-          <router-link to="/app-vue2">vue2 子应用</router-link>
-        </div>
-        <div class="layout_sidebar_item">
-          <router-link to="/app-vue3">vue3 + webpack 子应用</router-link>
-        </div> -->
       </div>
     </div>
   </div>
@@ -73,6 +66,8 @@ export default {
   background-color: chartreuse;
 }
 .sidebar_item_content {
+  margin-top: 16px;
+
   display: flex;
   justify-content: center;
   align-items: center;
