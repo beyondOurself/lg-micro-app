@@ -60,6 +60,10 @@ console.log(
  *
  */
 
+window.microApp.addGlobalDataListener((globalData) => {
+  console.log("vue3 子应用,监听全局数据", globalData);
+}, true);
+
 // < 子应用 监听全局数据
 
 const app = createApp(App);

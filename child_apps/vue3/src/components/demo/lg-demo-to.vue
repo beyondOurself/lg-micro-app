@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-23 10:27:54
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 17:03:31
+ * @LastEditTime: 2022-08-23 18:58:01
  * @FilePath: \vue3\src\components\demo\lg-demo-to.vue
  * @Description: 测试路由跳转
 -->
@@ -61,6 +61,11 @@
         >
       </div>
       <!-- E 自定义通讯对象发送数据 -->
+      <!-- S 跳到其他应用 -->
+      <div class="demo_to_item">
+        <el-button @click="toVue2Page" type="primary">跳到vue2页面</el-button>
+      </div>
+      <!-- E 跳到其他应用 -->
     </div>
   </div>
 </template>
@@ -175,6 +180,34 @@ const dispatchCustom = () => {
   window.eventCenterForAppVue3.dispatch({
     type: "子应用 自定义通讯发送的数据",
   });
+};
+
+/**
+ * @Author: canlong.shen
+ * @description: 直接跳转到 子应用 页面
+ * @default:
+ * @return {*}
+ */
+const toVue2Page = () => {
+  // 全局发送跳转数据
+
+  window.microApp.setGlobalData({
+    topic: "/base/redirect/msg",
+    msg: {
+      path: "/app-vue2",
+      name: "app-vue2",
+      query: {
+        id: 111,
+      },
+    },
+  });
+
+  // router.push({
+  //   path: "/app-vue2",
+  //   query: {
+  //     ...route.query,
+  //   },
+  // });
 };
 </script>
 <style lang="scss" scoped>

@@ -1,11 +1,14 @@
 <template>
-  <div class="page-vue2">
-    <div>这是vue2 的页面</div>
-  </div>
+  <micro-app
+  keep-alive
+    name="appname-vue2"
+    url="http://localhost:8083"
+    baseroute="/app-vue2"
+  ></micro-app>
 </template>
 <script>
 export default {
-  name: "",
+  name: "PageVu2",
   props: {},
   components: {},
   data() {
