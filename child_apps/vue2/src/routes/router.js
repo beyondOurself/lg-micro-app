@@ -10,9 +10,13 @@ const routes = [
     component: RootApp,
     children: [
       // 其他的路由都写到这里
-      //   { path: "test1", component: () => import("@/views/page-test1.vue") },
-      //   { path: "test2", component: () => import("@/views/page-test2.vue") },
+      { path: "test1", component: () => import("@/views/page-test1.vue") },
+      { path: "test2", component: () => import("@/views/page-test2.vue") },
     ],
+  },
+  {
+    path: "/",
+    component: () => import("@/views/home.vue"),
   },
 ];
 
