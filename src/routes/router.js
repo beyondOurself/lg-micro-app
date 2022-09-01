@@ -17,10 +17,18 @@ const routes = [
       import(/* webpackChunkName: "vue2" */ "@/views/page-vue2.vue"),
   },
   {
-    path: "/app-vue3*",
+    path: `${process.env.VUE_APP_V3_BASEROUTE}`,
     name: "app-vue3",
     component: () =>
-      import(/* webpackChunkName: "vue3" */ "@/views/page-vue3.vue"),
+      import(
+        /* webpackChunkName: "vue3" */ `@/views${process.env.VUE_APP_V3_BASEROUTE}.vue`
+      ),
+  },
+  {
+    path: "/app-vite3*",
+    name: "app-vite3",
+    component: () =>
+      import(/* webpackChunkName: "vite3" */ "@/views/page-vite3.vue"),
   },
 ];
 

@@ -2,8 +2,8 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-19 14:27:16
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 18:55:27
- * @FilePath: \micro-app-demo-own\src\views\page-vue3.vue
+ * @LastEditTime: 2022-09-01 20:05:42
+ * @FilePath: \micro-app-demo-own\src\views\app-vue3.vue
  * @Description:  vue3 页面
 -->
 
@@ -11,9 +11,9 @@
 <template>
   <micro-app
     keep-alive
-    name="appname-vue3"
-    url="http://localhost:8082/"
-    baseroute="/app-vue3"
+    :name="nameGet"
+    :url="urlGet"
+    :baseroute="baserouteGet"
     :disableScopecss="disableScopecssGet"
     :destroy="destroyGet"
     :data="microAppData"
@@ -38,6 +38,21 @@ export default {
     };
   },
   computed: {
+    nameGet() {
+      const name = `${process.env.VUE_APP_V3_NAME}`;
+      console.log("应用 name", name);
+      return name;
+    },
+    urlGet() {
+      const url = `${process.env.VUE_APP_V3_URL}/${process.env.VUE_APP_V3_NAME}/`;
+      console.log("应用 url", url);
+      return url;
+    },
+    baserouteGet() {
+      const baseroute = `${process.env.VUE_APP_V3_BASEROUTE}`;
+      console.log("应用 baseroute", baseroute);
+      return baseroute;
+    },
     inlineGet() {
       //默认开启 inline 用于测试
       /**

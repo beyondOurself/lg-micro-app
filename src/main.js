@@ -6,14 +6,19 @@ import microApp from "@micro-zoe/micro-app";
 import { EventCenterForMicroApp } from "@micro-zoe/micro-app";
 import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
+import Bridge from "@/utils/bridge.js";
+Vue.prototype.$bridge = Bridge.Instance;
 Vue.config.productionTip = false;
-
 // > 预加载
 
 // 方式一
 microApp.preFetch([
-  { name: "appname-vue3", url: "http://localhost:8082/" },
-  { name: "appname-vue2", url: "http://localhost:8083/" },
+  {
+    name: `${process.env.VUE_APP_V3_NAME}`,
+    url: `${process.env.VUE_APP_V3_URL}/${process.env.VUE_APP_V3_NAME}/`,
+  },
+  // { name: "appname-vue2", url: "http://localhost:8083/" },
+  // { name: "vite3", url: "http://localhost:4007/vite3/" },
 ]);
 
 // 方式二
@@ -82,6 +87,32 @@ microApp.start({
       console.log("全局监听 error");
     },
   },
+  /**
+   *  处理 vite 子应用 静态资源
+   *
+   */
+  plugins: {
+    modules: {
+      // appName即应用的name值
+      vite3: [
+        {
+          loader(code) {
+            if (process.env.NODE_ENV === "development") {
+              // 这里 /basename/ 需要和子应用vite.config.js中base的配置保持一致
+              code = code.replace(
+                /(from|import)(\s*['"])(\/vite3\/)/g,
+                (all) => {
+                  return all.replace("/vite3/", "http://localhost:4007/vite3/");
+                }
+              );
+            }
+
+            return code;
+          },
+        },
+      ],
+    },
+  },
 });
 
 // > 基座向子应用,手动发送数据
@@ -142,33 +173,9 @@ microApp.addDataListener(
  *
  */
 
-microApp.addGlobalDataListener((globalData) => {
-  console.log("基座应用,监听全局数", globalData);
-
-  const { topic = "", msg = {} } = globalData;
-
-  if (!topic) {
-    console.log("主题无效");
-
-    return;
-  }
-
-  if (topic === "/base/redirect/msg") {
-    const { path = "" } = msg;
-
-    if (!path) {
-      console.log("path 无效");
-      return;
-    }
-
-    console.log("跳转啦~");
-    routes.push({
-      path,
-    });
-  } else {
-    console.log("不是跳转主题");
-  }
-}, true);
+// microApp.addGlobalDataListener((globalData) => {
+//   console.log("基座应用,监听全局数", globalData);
+// }, true);
 
 // < 获取全局数据
 

@@ -19,6 +19,7 @@
       </template>
       <router-view></router-view>
     </Layout>
+    <BridgeInit />
   </div>
 </template>
 
@@ -26,11 +27,12 @@
 
 <script>
 import Layout from "@/components/layout/bsg-layout.vue";
-
+import BridgeInit from "@/utils/bridge-init.vue";
 export default {
   name: "App",
   components: {
     Layout,
+    BridgeInit,
   },
 };
 </script>

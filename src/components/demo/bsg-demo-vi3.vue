@@ -2,21 +2,21 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-23 11:54:14
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-09-01 16:11:21
- * @FilePath: \micro-app-demo-own\src\components\demo\bsg-demo-v3.vue
- * @Description:  vue3 + webpack
+ * @LastEditTime: 2022-08-31 17:05:08
+ * @FilePath: \micro-app-demo-own\src\components\demo\bsg-demo-vi3.vue
+ * @Description:  vue3 +  vite + hash
 -->
 
 <template>
-  <div class="bsg-demo-v3">
-    <div class="demo_v3_item">
+  <div class="bsg-demo-vi3">
+    <div class="demo_vi3_item">
       <a-button type="primary" @click="toVue3"> 跳转到 vue3 页面 </a-button>
     </div>
-    <div class="demo_v3_item">
+    <div class="demo_vi3_item">
       <a-button type="primary" @click="showEnv"> 项目环境 </a-button>
     </div>
     <!-- S 主动向子应用发送数据 -->
-    <div class="demo_v3_item">
+    <div class="demo_vi3_item">
       <a-button type="primary" @click="setDataToSubApply"
         >主动向子应用发送数据
       </a-button>
@@ -24,29 +24,15 @@
     <!-- E 主动向子应用发送数据 -->
 
     <!-- S 获取全局数据 -->
-    <div class="demo_v3_item">
+    <div class="demo_vi3_item">
       <a-button type="primary" @click="getGlobalData">获取全局数据 </a-button>
     </div>
     <!-- E 获取全局数据 -->
     <!-- S 发送全局数据 -->
-    <div class="demo_v3_item">
+    <div class="demo_vi3_item">
       <a-button type="primary" @click="setGlobalData">发送全局数据 </a-button>
     </div>
     <!-- E 发送全局数据 -->
-    <!-- S bridge发送全局数据 -->
-    <div class="demo_v3_item">
-      <a-button type="primary" @click="setGlobalDataBridge"
-        >bridge发送全局数据
-      </a-button>
-    </div>
-    <!-- E bridge发送全局数据 -->
-    <!-- S bridge 触发路由跳转 -->
-    <div class="demo_v3_item">
-      <a-button type="primary" @click="routerDataBridge"
-        >bridge 触发路由跳转 vue3 项目 test2 页面
-      </a-button>
-    </div>
-    <!-- E bridge 触发路由跳转 -->
   </div>
 </template>
 <script>
@@ -60,36 +46,13 @@ export default {
   methods: {
     /**
      * @Author: canlong.shen
-     * @description: 触发子应用路由跳转
-     * @default:
-     * @return {*}
-     */
-    routerDataBridge() {
-      this.$bridge.publish("/childs/appname-vue3/router/action", {
-        action: "push",
-        route: {
-          path: "/app-vue3/test1",
-        },
-      });
-    },
-    /**
-     * @Author: canlong.shen
-     * @description: 发送消息
-     * @default:
-     * @return {*}
-     */
-    setGlobalDataBridge() {
-      this.$bridge.publishToChilds({ data: "test" });
-    },
-    /**
-     * @Author: canlong.shen
      * @description:  跳转到 vue3 子应用
      * @default:
      * @return {*}
      */
     toVue3() {
       this.$router.push({
-        path: "/app-vue3",
+        path: "/vite3",
       });
     },
     showEnv() {
@@ -130,7 +93,7 @@ export default {
 <style lang="scss" scoped>
 /* 自定义样式
 ---------------------------------------------------------------- */
-.demo_v3_item {
+.demo_vi3_item {
   margin-bottom: 16px;
 }
 </style>
