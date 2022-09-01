@@ -2,7 +2,7 @@
  * @Author: canlong.shen 562172151@qq.com
  * @Date: 2022-08-23 10:27:54
  * @LastEditors: canlong.shen 562172151@qq.com
- * @LastEditTime: 2022-08-23 18:58:01
+ * @LastEditTime: 2022-09-01 16:26:23
  * @FilePath: \vue3\src\components\demo\lg-demo-to.vue
  * @Description: 测试路由跳转
 -->
@@ -70,6 +70,10 @@
   </div>
 </template>
 <script setup>
+import { getCurrentInstance } from "vue";
+const instance = getCurrentInstance();
+const _self = instance?.appContext.config.globalProperties;
+const $bridge = _self.$bridge;
 import { useRouter, useRoute } from "vue-router";
 const router = useRouter();
 const route = useRoute();
@@ -191,23 +195,12 @@ const dispatchCustom = () => {
 const toVue2Page = () => {
   // 全局发送跳转数据
 
-  window.microApp.setGlobalData({
-    topic: "/base/redirect/msg",
-    msg: {
+  $bridge.publish("/base/router/action", {
+    action: "push",
+    route: {
       path: "/app-vue2",
-      name: "app-vue2",
-      query: {
-        id: 111,
-      },
     },
   });
-
-  // router.push({
-  //   path: "/app-vue2",
-  //   query: {
-  //     ...route.query,
-  //   },
-  // });
 };
 </script>
 <style lang="scss" scoped>

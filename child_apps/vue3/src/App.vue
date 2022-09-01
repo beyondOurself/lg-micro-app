@@ -1,14 +1,18 @@
 <template>
   <LgLayout>
-    <router-view></router-view>
+    <div>
+      <router-view></router-view>
+      <BridgeInit />
+    </div>
   </LgLayout>
 </template>
 
 <script>
 import LgLayout from "@/components/layout/lg-layout.vue";
+import BridgeInit from "@/utils/bridge-app/bridge-init.vue";
 export default {
   name: "App",
-  components: { LgLayout },
+  components: { LgLayout, BridgeInit },
 };
 </script>
 

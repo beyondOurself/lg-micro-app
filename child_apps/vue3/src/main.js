@@ -6,6 +6,11 @@ import App from "./App.vue";
 import router from "@/routes/router.js";
 import ElementPlus from "element-plus";
 
+// > 微服务通讯
+import Bridge from "@/utils/bridge-app/bridge.js";
+console.log("Bridge", Bridge);
+// < 微服务通讯
+
 // > 环境变量
 
 /**
@@ -67,9 +72,14 @@ window.microApp.addGlobalDataListener((globalData) => {
 // < 子应用 监听全局数据
 
 const app = createApp(App);
+
+// > 微服务通讯
+app.config.globalProperties.$bridge = Bridge.Instance;
+// < 微服务通讯
 app.use(router);
 app.use(ElementPlus);
 app.mount("#app");
+
 // 监听卸载操作
 window.addEventListener("unmount", function () {
   console.log("子应用 被卸载了");
